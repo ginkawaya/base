@@ -1225,7 +1225,7 @@ function importWinsFactoryPdfCandidates() {
  */
 function ocrPdfByDrive_(pdfBlob, folder) {
   if (typeof Drive === 'undefined') {
-    throw new Error('Drive APIが有効になっていません。Apps Script左側の「サービス」から Drive API を追加してください。');
+    throw new Error('Drive APIが有効になっていません。Apps Script左側の「サービス」→「＋」→「Drive API」を追加してから、もう一度実行してください。');
   }
 
   const tempPdfFile = folder.createFile(pdfBlob);
@@ -1401,7 +1401,7 @@ function copyConfirmedPdfCandidatesToArrivalPlan() {
       messageId || '',
       'PDF読取',
       sourceText || '',
-      '反映OK',
+      '未反映',
       '',
       '革',
       'PDF確認済み'
