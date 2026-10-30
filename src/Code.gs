@@ -806,6 +806,10 @@ function autoSetReflectOkForArrivedRows_() {
     const confirm = row[10];   // K
     const reflect = row[15];   // P
     const category = row[17];  // R
+    const source = row[13];    // N
+
+    // PDFの読取確認と実物の入荷承認は別。反映OKは人が設定する。
+    if (source === 'PDF読取') return;
 
     const canReflect =
       (status === '入荷済み' || status === '発送済み') &&
@@ -1401,7 +1405,7 @@ function copyConfirmedPdfCandidatesToArrivalPlan() {
       messageId || '',
       'PDF読取',
       sourceText || '',
-      '反映OK',
+      '未反映',
       '',
       '革',
       'PDF確認済み'
